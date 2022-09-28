@@ -8,3 +8,7 @@ class Square(Rectangle):
 
     def get_side(self):
         return self.side
+
+    def set_side(self, side):
+        self.side = side
+

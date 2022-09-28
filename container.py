@@ -23,6 +23,8 @@ class Container:
             elif shape == 1:
                 length = random.randint(MIN_SIZE, MAX_SIZE)
                 width = random.randint(MIN_SIZE, MAX_SIZE)
+                while length == width:
+                    width = random.randint(MIN_SIZE, MAX_SIZE)
                 self.shapes_list.append(Rectangle(color, length, width))
             elif shape == 2:
                 radius = random.randint(MIN_SIZE, MAX_SIZE)
@@ -45,3 +47,16 @@ class Container:
         for shape in self.shapes_list:
             colors_dict[shape.get_color()] += 1
         return colors_dict
+
+
+def main():
+    my_container = Container()
+    my_container.generate(100)
+    print("total area:", my_container.sum_areas())
+    print("total perimeter:", my_container.sum_perimeters())
+    print("colors:", my_container.count_colors())
+
+
+if __name__ == '__main__':
+    main()
+
