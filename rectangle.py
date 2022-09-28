@@ -2,27 +2,53 @@ from shape import Shape
 
 
 class Rectangle(Shape):
-    def __init__(self, color='Blue', x=1, y=1):
+    def __init__(self, color='Blue', length=1, width=1):
+        """
+        Constructor
+        :param color: The rectangle's color
+        :param length:
+        :param width:
+        """
         super().__init__(color)
-        self.length = x
-        self.width = y
+        self.length = length
+        self.width = width
 
     def get_length(self):
+        """
+        :return: The rectangle's length
+        """
         return self.length
 
     def get_width(self):
+        """
+        :return: The rectangle's width
+        """
         return self.width
     
     def set_length(self, length):
+        """
+        Set the rectangle's length
+        :param length: The length to set the rectangle to
+        """
         self.length = length
         
     def set_width(self, width):
+        """
+        Set the rectangle's length
+        :param width: The width to set the rectangle to
+        """
         self.width = width
 
     def get_area(self):
+        """
+        :return: The rectangle's area
+        """
         return self.length + self.width
 
     def get_perimeter(self):
+        """
+        :return: The rectangle's perimeter
+        """
         return self.length * 2 + self.width * 2
 
     def combine_rects(self, rect):

@@ -17,27 +17,27 @@ class Shape(ABC):
     def set_color(self, color):
         """
         Set the shapes color
-        :param color: The color t set the shape to.
+        :param color: The color to set the shape to
         """
         self.color = color
 
     def get_color(self):
         """
-        :return: The shapes color.
+        :return: The shapes color
         """
         return self.color
 
     @abstractmethod
     def get_area(self):
         """
-        :return: The shapes area.
+        :return: The shapes area
         """
         return None
 
     @abstractmethod
     def get_perimeter(self):
         """
-        :return: The shapes perimeter.
+        :return: The shapes perimeter
         """
         return None
 
