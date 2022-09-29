@@ -13,7 +13,8 @@ class Circle(Shape):
         :param color: The circle's color
         :param radius: The circle's radius
         """
-        super().__init__(color)
+        self.radius = radius
+        super().__init__(color, self.get_area(), self.get_perimeter())
         self.radius = radius
 
     def get_radius(self):
@@ -40,3 +41,17 @@ class Circle(Shape):
         :return: The circle's perimeter
         """
         return self.radius * 2 * PI
+
+
+def main():
+    c = Circle("Green", 5)
+    print(c)
+
+
+if __name__ == '__main__':
+    test_circle = Circle('Red', 10)
+    assert test_circle.get_color() == 'Red'
+    assert test_circle.get_radius() == 10
+    assert test_circle.get_area() == 100 * math.pi
+    assert test_circle.get_perimeter() == 20 * math.pi
+    main()

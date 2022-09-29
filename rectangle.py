@@ -9,9 +9,9 @@ class Rectangle(Shape):
         :param length:
         :param width:
         """
-        super().__init__(color)
         self.length = length
         self.width = width
+        super().__init__(color, self.get_area(), self.get_perimeter())
 
     def get_length(self):
         """
@@ -24,14 +24,14 @@ class Rectangle(Shape):
         :return: The rectangle's width
         """
         return self.width
-    
+
     def set_length(self, length):
         """
         Set the rectangle's length
         :param length: The length to set the rectangle to
         """
         self.length = length
-        
+
     def set_width(self, width):
         """
         Set the rectangle's length
@@ -43,7 +43,7 @@ class Rectangle(Shape):
         """
         :return: The rectangle's area
         """
-        return self.length + self.width
+        return self.length * self.width
 
     def get_perimeter(self):
         """
@@ -71,3 +71,17 @@ class Rectangle(Shape):
             return None
         return Rectangle(self.color, new_length, new_width)
 
+
+def main():
+    r = Rectangle("Blue", 4, 7)
+    print(r)
+
+
+if __name__ == '__main__':
+    test_rectangle = Rectangle("Yellow", 3, 8)
+    assert test_rectangle.get_color() == "Yellow"
+    assert test_rectangle.get_area() == 24
+    assert test_rectangle.get_perimeter() == 22
+    assert test_rectangle.get_length() == 3
+    assert test_rectangle.get_width() == 8
+    main()
