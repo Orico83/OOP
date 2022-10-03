@@ -12,16 +12,34 @@ class Square(Rectangle):
         self.side = side
 
     def get_side(self):
+        """
+        :return: The square's side
+        """
         return self.side
 
     def set_side(self, side):
+        """
+        Set the square's side
+        :param side: The size to set the square's side to
+        """
         self.side = side
+        super().set_length(side)
+        super().set_width(side)
 
-    def set_length(self, length):
-        super().length = length
-        super().width = length
 
-    def set_width(self, width):
-        super().length = width
-        super().width = width
+def main():
+    s = Square("Green", 4)
+    print(s)
 
+
+if __name__ == '__main__':
+    test_square = Square("Yellow", 3)
+    assert test_square.get_color() == "Yellow"
+    assert test_square.get_area() == 9
+    assert test_square.get_perimeter() == 12
+    assert test_square.get_side() == 3
+    test_square.set_side(5)
+    assert test_square.get_side() == 5
+    assert test_square.get_area() == 25
+    assert test_square.get_perimeter() == 20
+    main()

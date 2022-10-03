@@ -3,16 +3,12 @@ from abc import ABC, abstractmethod
 
 class Shape(ABC):
 
-    def __init__(self, color='Blue', area=1, perimeter=1):
+    def __init__(self, color='Blue'):
         """
         constructor
         :param color: The shape's color
-        :param area: The shape's area
-        :param perimeter: The shape's perimeter
         """
         self.color = color
-        self.area = area
-        self.perimeter = perimeter
 
     def set_color(self, color):
         """
@@ -27,14 +23,12 @@ class Shape(ABC):
         """
         return self.color
 
-    @abstractmethod
     def get_area(self):
         """
         :return: The shapes area
         """
         return None
 
-    @abstractmethod
     def get_perimeter(self):
         """
         :return: The shapes perimeter
@@ -42,8 +36,17 @@ class Shape(ABC):
         return None
 
     def __str__(self):
-        """
+        return "color: " + self.color + ", area: " + str(self.get_area()) + ", perimeter: " + str(self.get_perimeter())
 
-        :return:
-        """
-        return "color: " + self.color + ", area: " + str(self.area) + ", perimeter: " + str(self.perimeter)
+
+def main():
+    s = Shape("White")
+    print(s)
+
+
+if __name__ == '__main__':
+    test_shape = Shape("Red")
+    assert test_shape.get_color() == "Red"
+    test_shape.set_color("Blue")
+    assert test_shape.get_color() == 'Blue'
+    main()

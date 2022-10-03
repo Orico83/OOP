@@ -9,9 +9,9 @@ class Rectangle(Shape):
         :param length:
         :param width:
         """
+        super().__init__(color)
         self.length = length
         self.width = width
-        super().__init__(color, self.get_area(), self.get_perimeter())
 
     def get_length(self):
         """
@@ -84,4 +84,12 @@ if __name__ == '__main__':
     assert test_rectangle.get_perimeter() == 22
     assert test_rectangle.get_length() == 3
     assert test_rectangle.get_width() == 8
+    test_rectangle.set_length(5)
+    test_rectangle.set_width(2)
+    assert test_rectangle.get_length() == 5
+    assert test_rectangle.get_width() == 2
+    assert test_rectangle.get_area() == 10
+    assert test_rectangle.get_perimeter() == 14
+    test_rectangle.set_color("Blue")
+    assert test_rectangle.get_color() == 'Blue'
     main()
