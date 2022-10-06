@@ -1,3 +1,11 @@
+"""
+Author: Ori Cohen
+Date: 06/10/2022
+Description: A child class that inherits from Shape and represents a rectangle by its color, length and width, and
+calculates its area and perimeter.
+The class is also a parent class to Square. Includes a function that combines two rectangles.
+"""
+
 from shape import Shape
 
 
@@ -52,9 +60,15 @@ class Rectangle(Shape):
         return self.length * 2 + self.width * 2
 
     def combine_rectangles(self, rect):
+        """
+        This function combines two rectangles with the same color and one of their sides is equal to one side of the
+        other rectangle.
+        :param rect: The rectangle to add to self.
+        :return: The combined Rectangle
+        """
         new_width = 0
         new_length = 0
-        if isinstance(rect, Rectangle):
+        if isinstance(rect, Rectangle) and self.color == rect.color:
             if self.width == rect.width:
                 new_width = self.width
                 new_length = self.length + rect.length
@@ -96,8 +110,12 @@ if __name__ == '__main__':
     assert test_rectangle.get_perimeter() == 14
     test_rectangle.set_color("Blue")
     assert test_rectangle.get_color() == 'Blue'
-    test_rectangle1 = Rectangle("Yellow", 3, 2)
-    new_rectangle = test_rectangle1.combine_rectangles(test_rectangle)
-    assert new_rectangle.get_color() == "Yellow"
-
+    test_rectangle1 = Rectangle("Red", 3, 2)
+    test_rectangle2 = Rectangle("Red", 6, 3)
+    new_rectangle = test_rectangle1.combine_rectangles(test_rectangle2)
+    assert new_rectangle.get_color() == "Red"
+    assert new_rectangle.get_length() == 3
+    assert new_rectangle.get_width() == 8
+    assert new_rectangle.get_area() == 24
+    assert new_rectangle.get_perimeter() == 22
     main()

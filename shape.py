@@ -1,7 +1,11 @@
-from abc import ABC, abstractmethod
+"""
+Author: Ori Cohen
+Date: 06/10/2022
+Description: A parent class that represents a shape by it's color, area and perimeter.
+"""
 
 
-class Shape(ABC):
+class Shape:
 
     def __init__(self, color='Blue'):
         """

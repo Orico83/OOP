@@ -1,3 +1,9 @@
+"""
+Author: Ori Cohen
+Date: 06/10/2022
+Description: A child class that inherits from Rectangle that represents a square by its color and side, and calculates
+its area and perimeter.
+"""
 from rectangle import Rectangle
 
 
@@ -28,7 +34,7 @@ class Square(Rectangle):
 
 
 def main():
-    s = Square("Green", 4)
+    s = Square("White", 7)
     print(s)
 
 

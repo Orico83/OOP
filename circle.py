@@ -1,5 +1,11 @@
-import math
+"""
+Author: Ori Cohen
+Date: 06/10/2022
+Description: A child class that inherits from Shape and represents a circle by its color and radius and calculates its
+area and perimeter.
+"""
 
+import math
 from shape import Shape
 
 PI = math.pi
@@ -44,7 +50,7 @@ class Circle(Shape):
 
 
 def main():
-    c = Circle("Green", 5)
+    c = Circle("Red", 5)
     print(c)
 
 
