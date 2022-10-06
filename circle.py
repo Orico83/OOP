@@ -54,5 +54,8 @@ if __name__ == '__main__':
     assert test_circle.get_radius() == 10
     assert test_circle.get_area() == 100 * math.pi
     assert test_circle.get_perimeter() == 20 * math.pi
-    test_circle
+    test_circle.set_radius(5)
+    assert test_circle.get_radius() == 5
+    assert test_circle.get_area() == 25 * math.pi
+    assert test_circle.get_perimeter() == 10 * math.pi
     main()

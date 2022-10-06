@@ -57,7 +57,7 @@ class Container:
         """
         perimeters_sum = 0
         for shape in self.shapes_list:
-            perimeters_sum += shape.get_area()
+            perimeters_sum += shape.get_perimeter()
         return perimeters_sum
 
     def count_colors(self):
@@ -71,6 +71,18 @@ class Container:
         return colors_dict
 
 
+def check_shapes(shapes_list):
+    for shape in shapes_list:
+        if isinstance(shape, Circle):
+            return True
+        elif isinstance(shape, Square):
+            return True
+        elif isinstance(shape, Rectangle):
+            return True
+        else:
+            return False
+
+
 def main():
     my_container = Container()
     my_container.generate(100)
@@ -80,5 +92,8 @@ def main():
 
 
 if __name__ == '__main__':
+    test_container = Container()
+    test_container.generate(5)
+    assert len(test_container.shapes_list) == 5
+    assert check_shapes(test_container.shapes_list)
     main()
-

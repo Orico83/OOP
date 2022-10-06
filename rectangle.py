@@ -51,7 +51,7 @@ class Rectangle(Shape):
         """
         return self.length * 2 + self.width * 2
 
-    def combine_rects(self, rect):
+    def combine_rectangles(self, rect):
         new_width = 0
         new_length = 0
         if isinstance(rect, Rectangle):
@@ -61,10 +61,10 @@ class Rectangle(Shape):
             elif self.length == rect.length:
                 new_width = self.width + rect.width
                 new_length = self.length
-            elif self.width == rect.length:
+            elif self.length == rect.width:
                 new_width = self.width + rect.length
                 new_length = self.length
-            elif self.length == rect.width:
+            elif self.width == rect.length:
                 new_width = self.width
                 new_length = self.length + rect.width
         else:
@@ -75,6 +75,10 @@ class Rectangle(Shape):
 def main():
     r = Rectangle("Blue", 4, 7)
     print(r)
+    r1 = Rectangle("Blue", 6, 4)
+    print(r1)
+    n = r.combine_rectangles(r1)
+    print(n)
 
 
 if __name__ == '__main__':
@@ -92,4 +96,8 @@ if __name__ == '__main__':
     assert test_rectangle.get_perimeter() == 14
     test_rectangle.set_color("Blue")
     assert test_rectangle.get_color() == 'Blue'
+    test_rectangle1 = Rectangle("Yellow", 3, 2)
+    new_rectangle = test_rectangle1.combine_rectangles(test_rectangle)
+    assert new_rectangle.get_color() == "Yellow"
+
     main()
